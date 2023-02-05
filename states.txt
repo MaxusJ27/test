@@ -1,0 +1,2 @@
+Notes on states:
+[active, setActive] = useState(false);
