@@ -17,12 +17,10 @@ interface IQueable {
 }
 
 class Queue implements IQueable {
-    // static private final int DEFAULT_CAP = 1;
     static private int front, end, capacity;
-    // public int len = 0;
     
     public String[] arr;
-    // if not argument provided,
+    // if no argument provided,
     // then default constructor initialization
     // capacity is set to DEFAULT_CAP (1)
     public Queue() {
@@ -84,7 +82,6 @@ class Queue implements IQueable {
 }
 // Stack is essentially LIFO (last-in first-out)
 class Stack implements IQueable {
-    // private static final int DEFAULT_CAP = 1;
     // LIFO
     // point to the top of array (elements added in to top of array)
     public String[] arr;
