@@ -1,48 +1,42 @@
-// tsc index.ts 
+/*
+Simplified version of Queue implemented in TypeScript 
+Array is already dynamic
+*/
 // 
 interface IQueable {
-    enqeueue(value: String): String[];
+    enqeueue(value: string): string[];
     dequeue(): any;
-    getQueue(): String[];
+    getQueue(): string[];
     size(): number;
 }
 
 
 export class Queue implements IQueable {
-    arr: String[];
-
+    arr: string[];
+    // constructor initialization
     constructor() {
-        // constructor initialization 
         this.arr = [];
     }
 
-
-    enqeueue(value: String): String[] {
+    // enqueueing elements into the array
+    enqeueue(value: string): string[] {
         this.arr.push(value);
         return this.arr;
     }
-
+    // Return type is any 
+    // so it can return the dequeued element and also 
+    // a string message if the array is empty
     dequeue(): any {
         
         return this.arr.length === 0 ? 'No tickets in the waiting queue' : this.arr.shift();
     }
-
-    getQueue(): String[] {
+    // get the array
+    getQueue(): string[] {
         return this.arr;
     }
+    // get the number of elements in array
     size(): number {
         return this.arr.length;
     }
 }
-
-// let newQueue = new Queue();
-// newQueue.enqeueue('10');
-// newQueue.enqeueue('10');
-// newQueue.enqeueue('10');
-// console.log(newQueue.getQueue());
-// console.log(newQueue.dequeue());
-// console.log(newQueue.dequeue());
-// console.log(newQueue.getQueue());
-// console.log(newQueue.size())
-
 
