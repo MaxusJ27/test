@@ -11,7 +11,7 @@ var Queue = /** @class */ (function () {
         return this.arr;
     };
     Queue.prototype.dequeue = function () {
-        return this.arr.shift();
+        return this.arr.length === 0 ? 'No tickets in the waiting queue' : this.arr.shift();
     };
     Queue.prototype.getQueue = function () {
         return this.arr;

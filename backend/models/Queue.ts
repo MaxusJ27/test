@@ -1,3 +1,5 @@
+// tsc index.ts 
+// 
 interface IQueable {
     enqeueue(value: String): String[];
     dequeue(): any;
@@ -21,7 +23,8 @@ export class Queue implements IQueable {
     }
 
     dequeue(): any {
-        return this.arr.shift();
+        
+        return this.arr.length === 0 ? 'No tickets in the waiting queue' : this.arr.shift();
     }
 
     getQueue(): String[] {

@@ -5,6 +5,7 @@ import java.util.*;
 // dynamic arrays 
 interface IQueable {
     static final int DEFAULT_CAP = 1;
+
     public String[] enqueue(String value);
 
     public String dequeue();
@@ -80,9 +81,6 @@ class Queue implements IQueable {
     public int size(){
         return end;
     }
-
-
-
 }
 // Stack is essentially LIFO (last-in first-out)
 class Stack implements IQueable {
@@ -160,24 +158,27 @@ class Stack implements IQueable {
 
 public class Queueing {
     public static void main(String[] args) {
-        // Stack stackExample = new Stack();
+        System.out.println("Stack Example:");
+        Stack stackExample = new Stack();
 
-        // stackExample.enqueue("Haha");
-        // stackExample.enqueue("Lolz");
-        // System.out.println(stackExample.size());
-        // System.out.println(stackExample.dequeue());
-        // System.out.println(stackExample);
-        // String[] stackList = stackExample.getQueue();
-
+        stackExample.enqueue("Hello");
+        stackExample.enqueue("World");
+        System.out.println("Current stack is " + stackExample);
+        System.out.println("Size of stack = " + stackExample.size());
+        System.out.println("Popped element after pop " + stackExample.dequeue());
+        System.out.println("Current stack is " + stackExample);
+        String[] stackList = stackExample.getQueue();
+        
+        System.out.println("\nQueue Example:");
         Queue queueExample = new Queue();
 
         queueExample.enqueue("Hi");
         queueExample.enqueue("There");
-        System.out.println(queueExample);
-        System.out.println(queueExample.size());
-        System.out.println(queueExample.dequeue());
-        System.out.println(queueExample.size());
-        System.out.println(queueExample);
+        System.out.println("Current queue is: " + queueExample);
+        System.out.println("Size of queue is " + queueExample.size());
+        System.out.println("Dequeued element is " + queueExample.dequeue());
+        System.out.println("Size of queue is " + queueExample.size());
+        System.out.println("Current queue after dequeue is" + queueExample);
     }
     
 }

@@ -19,18 +19,21 @@ app.use(bodyParser.urlencoded({
 */
 app.use(bodyParser.json());
 app.post('/queue', async (req, res) => {
-  console.log(req.body.number)
   queue.enqeueue(req.body.number.toString())
 })
-
+app.get('/', (req, res) => {
+  res.send('<h1>NodeJS started</h1>')
+})
 app.get('/current', async (req, res) => {
-  res.send(queue.dequeue());
+  // console.log(queue.dequeue())
+  // res.send(queue.dequeue());
+  res.json({'currentVal': queue.dequeue()});
 })
 app.get('/queue', async (req, res) => {
-  res.send(queue);
+  res.json({'queue': queue});
 })
 app.get('/end', async (req, res) => {
-  res.send(queue.getQueue()[queue.size() - 1]);
+  res.json({'end': queue.getQueue()[queue.size() - 1]});
 })
 app.get('/head', async (req, res) => {
   res.send(queue.getQueue()[0]);
@@ -38,6 +41,6 @@ app.get('/head', async (req, res) => {
 
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening on port ${port}`)
 })
